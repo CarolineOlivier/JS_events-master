@@ -25,3 +25,34 @@ hamburgerButton.addEventListener('click', function() {
   // Utiliser toggle pour ajouter/enlever la classe "collapse"
   navbarHeader.classList.toggle('collapse');
 });
+
+// Sélectionner la première card
+const firstCard = document.querySelectorAll('.card')[0];
+
+// Sélectionner le bouton "Edit" de la première card
+const editButtonFirstCard = firstCard.querySelector('.btn-outline-secondary');
+
+// Ajouter un écouteur d'événement pour le clic sur le bouton "Edit"
+editButtonFirstCard.addEventListener('click', function() {
+  // Changer la couleur du texte de la card en rouge
+  firstCard.style.color = 'red';
+});
+
+
+// Sélectionner la deuxième card
+const secondCard = document.querySelectorAll('.card')[1];
+
+// Sélectionner le bouton "Edit" de la deuxième card
+const editButtonSecondCard = secondCard.querySelector('.btn-outline-secondary');
+
+// Ajouter un écouteur d'événement pour le clic sur le bouton "Edit"
+editButtonSecondCard.addEventListener('click', function() {
+  // Vérifier la couleur actuelle de la card et alterner entre vert et la couleur d'origine
+  if (secondCard.style.color === 'green') {
+    // Remettre la couleur d'origine (par défaut)
+    secondCard.style.color = '';
+  } else {
+    // Changer la couleur du texte de la card en vert
+    secondCard.style.color = 'green';
+  }
+});
