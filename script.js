@@ -13,3 +13,15 @@ footer.addEventListener('click', function() {
   console.log(`clic numéro ${clickCount}`);
 });
 PeriodicWave
+
+// Sélectionner le bouton hamburger
+const hamburgerButton = document.querySelector('.navbar-toggler');
+
+// Sélectionner l'élément navbarHeader
+const navbarHeader = document.getElementById('navbarHeader');
+
+// Ajouter un écouteur d'événement au bouton hamburger
+hamburgerButton.addEventListener('click', function() {
+  // Utiliser toggle pour ajouter/enlever la classe "collapse"
+  navbarHeader.classList.toggle('collapse');
+});
