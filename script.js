@@ -56,3 +56,19 @@ editButtonSecondCard.addEventListener('click', function() {
     secondCard.style.color = 'green';
   }
 });
+
+// Sélectionner la navbar
+const navbar = document.querySelector('.navbar');
+
+// Sélectionner la balise <link> qui charge Bootstrap
+const bootstrapLink = document.querySelector('link[rel="stylesheet"]');
+
+// Ajouter un écouteur d'événement double-clic sur la navbar
+navbar.addEventListener('dblclick', function() {
+  // Si Bootstrap est actif, on le désactive
+  if (bootstrapLink.disabled) {
+    bootstrapLink.disabled = false; // Réactiver Bootstrap
+  } else {
+    bootstrapLink.disabled = true; // Désactiver Bootstrap
+  }
+});
