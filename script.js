@@ -163,7 +163,8 @@ moveCardButton.addEventListener('click', function(event) {
   cardContainer.insertBefore(lastCard, cardContainer.firstElementChild);
 });
 
-// Fonctionnalité 8 : Déplacer la première card en dernier au clic sur le bouton bleu "<=="
+                                               // Fonctionnalité 8 : Déplacer la première card en dernier au clic sur le bouton bleu "<=="
+
 // Sélectionner le bouton bleu "<=="
 const moveFirstCardButton = document.querySelector('.btn.btn-primary.my-2');
 
@@ -181,4 +182,44 @@ moveFirstCardButton.addEventListener('click', function(event) {
   cardContainer.insertBefore(firstCard, afterLastCard);
 });
 
+                                                  // Fonctionnalité 9 : Modifier la mise en page avec des touches du clavier
+
+// Fonctionnalité 9 : Modifier la mise en page avec des touches du clavier
+
+// Sélectionner l'élément du logo de la navbar
+const logo = document.querySelector('.navbar-brand');
+
+// Ajouter un événement 'click' pour permettre au logo de capturer le focus
+logo.addEventListener('click', function() {
+  logo.focus();
+});
+
+// Ajouter un événement 'keypress' sur le logo pour détecter les touches du clavier uniquement quand le logo a le focus
+logo.addEventListener('keypress', function(event) {
+  // Sélectionner le body pour modifier la mise en page
+  const body = document.querySelector('body');
+
+  // Retirer toutes les classes existantes du body pour éviter les accumulations
+  body.className = '';
+
+  // Vérifier quelle touche a été pressée et appliquer la classe appropriée
+  switch (event.key) {
+    case 'a':
+      // Mettre le contenu sur 4 colonnes à gauche
+      body.classList.add('col-4');
+      break;
+    case 'y':
+      // Mettre le contenu sur 4 colonnes au milieu
+      body.classList.add('col-4', 'offset-md-4');
+      break;
+    case 'p':
+      // Mettre le contenu sur 4 colonnes à droite
+      body.classList.add('col-4', 'offset-md-8');
+      break;
+    case 'b':
+      // Remettre la mise en page à la normale, en plein écran
+      // On ne rajoute aucune classe pour avoir l'affichage en plein écran
+      break;
+  }
+});
 
