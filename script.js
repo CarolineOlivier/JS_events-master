@@ -163,3 +163,22 @@ moveCardButton.addEventListener('click', function(event) {
   cardContainer.insertBefore(lastCard, cardContainer.firstElementChild);
 });
 
+// Fonctionnalité 8 : Déplacer la première card en dernier au clic sur le bouton bleu "<=="
+// Sélectionner le bouton bleu "<=="
+const moveFirstCardButton = document.querySelector('.btn.btn-primary.my-2');
+
+// Ajouter un écouteur d'événement pour déplacer la première card en dernier
+moveFirstCardButton.addEventListener('click', function(event) {
+  event.preventDefault(); // Empêcher le comportement par défaut du lien (ouverture de la page)
+
+  // Sélectionner la première card
+  const firstCard = cardContainer.firstElementChild;
+
+  // Sélectionner l'élément après lequel nous voulons insérer la première card
+  const afterLastCard = cardContainer.lastElementChild.nextSibling;
+
+  // Déplacer la première card après la dernière card (équivalent à "insertAfter")
+  cardContainer.insertBefore(firstCard, afterLastCard);
+});
+
+
