@@ -1,3 +1,7 @@
+                                                  // Fonctionnalité 1 : Afficher "clic" en console lors du clic sur le footer
+                                                 // Fonctionnalité 1 : Afficher "clique" en console lors du clic sur le footer
+                                                // Fonctionnalité 1-bis : Afficher "clic numéro x" en console avec incrémentation à chaque clic
+
 // Sélectionner l'élément footer
 const footer = document.querySelector('footer');
 
@@ -14,6 +18,8 @@ footer.addEventListener('click', function() {
 });
 PeriodicWave
 
+                                                // Fonctionnalité 2 : Activer/désactiver le menu hamburger au clic
+
 // Sélectionner le bouton hamburger
 const hamburgerButton = document.querySelector('.navbar-toggler');
 
@@ -25,6 +31,8 @@ hamburgerButton.addEventListener('click', function() {
   // Utiliser toggle pour ajouter/enlever la classe "collapse"
   navbarHeader.classList.toggle('collapse');
 });
+
+                                               // Fonctionnalité 3 : Changer la couleur du texte de la première card en rouge lors du clic sur "Edit"
 
 // Sélectionner la première card
 const firstCard = document.querySelectorAll('.card')[0];
@@ -38,6 +46,7 @@ editButtonFirstCard.addEventListener('click', function() {
   firstCard.style.color = 'red';
 });
 
+                                              // Fonctionnalité 4 : Alterner la couleur du texte de la deuxième card entre vert et la couleur d'origine
 
 // Sélectionner la deuxième card
 const secondCard = document.querySelectorAll('.card')[1];
@@ -57,6 +66,8 @@ editButtonSecondCard.addEventListener('click', function() {
   }
 });
 
+                                              // Fonctionnalité 5 : Désactiver/réactiver Bootstrap en double-cliquant sur la navbar
+
 // Sélectionner la navbar
 const navbar = document.querySelector('.navbar');
 
@@ -73,6 +84,7 @@ navbar.addEventListener('dblclick', function() {
   }
 });
 
+                                              // Fonctionnalité 6 : Réduire l'image et cacher le texte au survol du bouton "View" de chaque card
 
 // Sélectionner toutes les cards
 const allCards = document.querySelectorAll('.card');
@@ -131,4 +143,23 @@ allCards.forEach(card => {
 // C'est pourquoi c'est moins coûteux en recalculs et en changements de mise en page.
 // cette solution est plus stable que l'utilisation de width et plus efficace pour éviter les recalculs excessifs.
 
+                                                // Fonctionnalité 7 : Déplacer la dernière card en premier au clic sur le bouton gris "==>"
+
+const moveCardButton = document.querySelector('.btn.btn-secondary.my-2'); // Sélectionner le bouton gris "==>"
+const cardContainer = document.querySelector('.album .row'); // Sélectionner le conteneur des cards
+
+//Le bouton gris est un lien (<a>), donc cliquer dessus risque de rafraîchir la page ou de la rediriger.
+moveCardButton.addEventListener('click', function(event) {
+  event.preventDefault(); // Empêche le comportement par défaut du lien 
+  //(href="#" signifie que le lien pointe vers le haut de la page courante (ancre de l'ID vide).
+ //cf ligne fichier html :    <a href="#" class="btn btn-secondary my-2">==></a>
+  //en cliquant sur le lien, le navigateur :
+//Rafraîchit la page ou fait défiler la page vers le haut, ce qui est l'action par défaut.
+
+  // Sélection de la dernière card
+  const lastCard = cardContainer.lastElementChild;
+
+  // Déplacement de la dernière card en première position
+  cardContainer.insertBefore(lastCard, cardContainer.firstElementChild);
+});
 
